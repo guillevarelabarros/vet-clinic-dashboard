@@ -1,10 +1,12 @@
 // src/App.tsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import PatientForm from './components/PatientForm';
 import PatientsList from './components/PatientsList';
 import 'react-toastify/dist/ReactToastify.css';
 import {
+  AppBar,
+  Toolbar,
   Container,
   Typography,
   Grid,
@@ -17,7 +19,16 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  // Cargar el tema preferido desde localStorage
+  const [darkMode, setDarkMode] = useState<boolean>(() => {
+    const saved = localStorage.getItem('preferred-theme');
+    return saved === 'dark';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('preferred-theme', darkMode ? 'dark' : 'light');
+  }, [darkMode]);
+
   const currentTheme = darkMode ? darkTheme : lightTheme;
 
   const handleThemeToggle = () => {
@@ -28,21 +39,18 @@ function App() {
     <ThemeProvider theme={currentTheme}>
       {/* CssBaseline aplica estilos globales según el tema */}
       <CssBaseline />
-      <Container sx={{ mt: 10, position: 'relative' }}>
-        <IconButton
-          onClick={handleThemeToggle}
-          sx={{ position: 'absolute', top: 0, right: 0 }}
-          color='inherit'
-        >
-          {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
-        <Typography variant='h2' align='center' gutterBottom>
-          Seguimiento de Pacientes{' '}
-          <span style={{ color: currentTheme.palette.primary.main }}>
-            Veterinaria
-          </span>
-        </Typography>
-        <Grid container spacing={3} sx={{ mt: 3 }}>
+      <AppBar position='static'>
+        <Toolbar>
+          <Typography variant='h6' sx={{ flexGrow: 1 }}>
+            Veterinaria - Seguimiento de Pacientes
+          </Typography>
+          <IconButton color='inherit' onClick={handleThemeToggle}>
+            {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <Container sx={{ mt: 4 }}>
+        <Grid container spacing={3}>
           <Grid item xs={12} md={6}>
             <PatientForm />
           </Grid>
