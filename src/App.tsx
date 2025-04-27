@@ -40,7 +40,7 @@ function App() {
       <AppBar position='static'>
         <Toolbar>
           <Typography variant='h6' sx={{ flexGrow: 1 }}>
-            Veterinary - Patient Tracker
+            Vet Clinic Management App
           </Typography>
           <IconButton color='inherit' onClick={handleThemeToggle}>
             {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
