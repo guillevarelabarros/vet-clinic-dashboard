@@ -25,7 +25,7 @@ export default function PatientDetailPage() {
   if (!patient) {
     return (
       <Typography variant='h6' align='center' sx={{ mt: 4 }}>
-        Paciente no encontrado.
+        Patient not found.
       </Typography>
     );
   }
@@ -36,9 +36,9 @@ export default function PatientDetailPage() {
   };
 
   const handleDelete = () => {
-    if (window.confirm('¿Estás seguro de eliminar este paciente?')) {
+    if (window.confirm('Are you sure you want to delete this patient?')) {
       deletePatient(patient.id);
-      toast('Paciente Eliminado', { type: 'error' });
+      toast('Patient deleted', { type: 'error' });
       navigate('/');
     }
   };
@@ -46,7 +46,7 @@ export default function PatientDetailPage() {
   return (
     <Container maxWidth='sm' sx={{ mt: 4 }}>
       <Typography variant='h4' align='center' gutterBottom>
-        Detalles del Paciente
+        Patient Details
       </Typography>
       <Paper sx={{ p: 3 }}>
         {patient.avatar && (
@@ -59,14 +59,14 @@ export default function PatientDetailPage() {
           </Box>
         )}
         <PatientDetailItem label='ID' data={patient.id} />
-        <PatientDetailItem label='Nombre' data={patient.name} />
-        <PatientDetailItem label='Propietario' data={patient.caretaker} />
+        <PatientDetailItem label='Name' data={patient.name} />
+        <PatientDetailItem label='Owner' data={patient.caretaker} />
         <PatientDetailItem label='Email' data={patient.email} />
         <PatientDetailItem
-          label='Fecha Alta'
+          label='Admission Date'
           data={new Date(patient.date).toLocaleDateString()}
         />
-        <PatientDetailItem label='Síntomas' data={patient.symptoms} />
+        <PatientDetailItem label='Symptoms' data={patient.symptoms} />
 
         <Stack
           direction='row'
@@ -75,10 +75,10 @@ export default function PatientDetailPage() {
           sx={{ mt: 3 }}
         >
           <Button variant='contained' color='primary' onClick={handleEdit}>
-            Editar
+            Edit
           </Button>
           <Button variant='contained' color='error' onClick={handleDelete}>
-            Eliminar
+            Delete
           </Button>
         </Stack>
       </Paper>

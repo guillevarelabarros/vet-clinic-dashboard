@@ -19,10 +19,7 @@ type ChartData = {
 export default function PatientChart() {
   const patients = usePatientStore(state => state.patients);
 
-  // Generar datos de pacientes por mes
   const data: ChartData[] = [];
-
-  // Crear un objeto para contar pacientes por mes
   const counts: { [key: string]: number } = {};
 
   patients.forEach(patient => {
@@ -34,7 +31,6 @@ export default function PatientChart() {
     counts[month] = (counts[month] || 0) + 1;
   });
 
-  // Convertir el objeto a un array ordenado cronológicamente
   const sortedMonths = Object.keys(counts).sort((a, b) => {
     const [monthA, yearA] = a.split(' ');
     const [monthB, yearB] = b.split(' ');
@@ -50,7 +46,7 @@ export default function PatientChart() {
   return (
     <Box sx={{ mt: 5 }}>
       <Typography variant='h5' align='center' gutterBottom>
-        Pacientes Registrados por Mes
+        Patients Registered per Month
       </Typography>
       <Paper sx={{ p: 3 }}>
         {data.length > 0 ? (
@@ -65,7 +61,7 @@ export default function PatientChart() {
           </ResponsiveContainer>
         ) : (
           <Typography variant='body1' align='center'>
-            No hay datos para mostrar.
+            No data to display.
           </Typography>
         )}
       </Paper>

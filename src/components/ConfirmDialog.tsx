@@ -1,5 +1,4 @@
 // src/components/ConfirmDialog.tsx
-
 import {
   Dialog,
   DialogTitle,
@@ -26,16 +25,16 @@ export default function ConfirmDialog({
 }: ConfirmDialogProps) {
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>{title || 'Confirmación'}</DialogTitle>
+      <DialogTitle>{title || 'Confirmation'}</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          {content || '¿Estás seguro de continuar?'}
+          {content || 'Are you sure you want to continue?'}
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Cancelar</Button>
+        <Button onClick={onClose}>Cancel</Button>
         <Button onClick={onConfirm} color='error'>
-          Confirmar
+          Confirm
         </Button>
       </DialogActions>
     </Dialog>

@@ -1,3 +1,4 @@
+// src/components/PatientDetailItem.tsx
 import Typography from '@mui/material/Typography';
 
 type PatientDetailItemProps = {

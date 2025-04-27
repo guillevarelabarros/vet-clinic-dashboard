@@ -19,7 +19,6 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 function App() {
-  // Cargar el tema preferido desde localStorage
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     const saved = localStorage.getItem('preferred-theme');
     return saved === 'dark';
@@ -37,12 +36,11 @@ function App() {
 
   return (
     <ThemeProvider theme={currentTheme}>
-      {/* CssBaseline aplica estilos globales según el tema */}
       <CssBaseline />
       <AppBar position='static'>
         <Toolbar>
           <Typography variant='h6' sx={{ flexGrow: 1 }}>
-            Veterinaria - Seguimiento de Pacientes
+            Veterinary - Patient Tracker
           </Typography>
           <IconButton color='inherit' onClick={handleThemeToggle}>
             {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}

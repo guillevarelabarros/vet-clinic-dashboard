@@ -42,12 +42,10 @@ export default function PatientForm() {
   const registerPatient = (data: DraftPatient) => {
     if (activeId) {
       updatePatient(data);
-      toast('Paciente Actualizado Correctamente', {
-        type: 'success',
-      });
+      toast('Patient successfully updated', { type: 'success' });
     } else {
       addPatient(data);
-      toast.success('Paciente Registrado Correctamente');
+      toast.success('Patient successfully registered');
     }
     reset();
   };
@@ -55,12 +53,12 @@ export default function PatientForm() {
   return (
     <Container maxWidth='sm'>
       <Typography variant='h3' align='center' gutterBottom>
-        Seguimiento Pacientes
+        Patient Tracker
       </Typography>
       <Typography variant='h6' align='center' gutterBottom>
-        Añade Pacientes y{' '}
+        Add Patients and{' '}
         <span style={{ color: '#3f51b5', fontWeight: 'bold' }}>
-          Administralos
+          Manage Them
         </span>
       </Typography>
       <Paper sx={{ p: 3, mb: 3 }}>
@@ -68,10 +66,10 @@ export default function PatientForm() {
           <Box mb={2}>
             <TextField
               id='name'
-              label='Paciente'
+              label='Patient'
               fullWidth
               {...register('name', {
-                required: 'El Nombre del paciente es obligatorio',
+                required: 'Patient name is required',
               })}
               error={!!errors.name}
               helperText={errors.name?.message}
@@ -80,10 +78,10 @@ export default function PatientForm() {
           <Box mb={2}>
             <TextField
               id='caretaker'
-              label='Propietario'
+              label='Owner'
               fullWidth
               {...register('caretaker', {
-                required: 'El Propietario es obligatorio',
+                required: 'Owner is required',
               })}
               error={!!errors.caretaker}
               helperText={errors.caretaker?.message}
@@ -96,10 +94,10 @@ export default function PatientForm() {
               type='email'
               fullWidth
               {...register('email', {
-                required: 'El Email es Obligatorio',
+                required: 'Email is required',
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: 'Email No Válido',
+                  message: 'Invalid email address',
                 },
               })}
               error={!!errors.email}
@@ -109,12 +107,12 @@ export default function PatientForm() {
           <Box mb={2}>
             <TextField
               id='date'
-              label='Fecha Alta'
+              label='Admission Date'
               type='date'
               fullWidth
               InputLabelProps={{ shrink: true }}
               {...register('date', {
-                required: 'La fecha de alta es obligatoria',
+                required: 'Admission date is required',
               })}
               error={!!errors.date}
               helperText={errors.date?.message}
@@ -123,19 +121,19 @@ export default function PatientForm() {
           <Box mb={2}>
             <TextField
               id='symptoms'
-              label='Síntomas'
+              label='Symptoms'
               multiline
               rows={4}
               fullWidth
               {...register('symptoms', {
-                required: 'Los síntomas son obligatorios',
+                required: 'Symptoms are required',
               })}
               error={!!errors.symptoms}
               helperText={errors.symptoms?.message}
             />
           </Box>
           <Button variant='contained' color='primary' type='submit' fullWidth>
-            Guardar Paciente
+            Save Patient
           </Button>
         </form>
       </Paper>

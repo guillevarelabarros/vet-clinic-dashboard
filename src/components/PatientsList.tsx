@@ -17,17 +17,17 @@ export default function PatientsList() {
   return (
     <Container sx={{ mt: 4 }}>
       <Typography variant='h3' align='center' gutterBottom>
-        Listado de Pacientes
+        Patient List
       </Typography>
       <Typography variant='h5' align='center' gutterBottom>
-        Administra tus{' '}
+        Manage your{' '}
         <span style={{ color: '#3f51b5', fontWeight: 'bold' }}>
-          Pacientes y Citas
+          Patients and Appointments
         </span>
       </Typography>
       <Box sx={{ mb: 2 }}>
         <TextField
-          label='Buscar paciente...'
+          label='Search patient...'
           variant='outlined'
           fullWidth
           value={searchTerm}
@@ -40,7 +40,7 @@ export default function PatientsList() {
         ))
       ) : (
         <Typography variant='h6' align='center'>
-          No se encontraron pacientes
+          No patients found
         </Typography>
       )}
     </Container>

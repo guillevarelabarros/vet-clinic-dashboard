@@ -7,7 +7,7 @@ import { usePatientStore } from '../store';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import Grow from '@mui/material/Grow'; // Importa Grow
+import Grow from '@mui/material/Grow';
 import ConfirmDialog from './ConfirmDialog';
 
 type PatientDetailsProps = {
@@ -26,7 +26,7 @@ export default function PatientDetails({ patient }: PatientDetailsProps) {
 
   const handleConfirmDelete = () => {
     deletePatient(patient.id);
-    toast('Paciente Eliminado', { type: 'error' });
+    toast('Patient deleted', { type: 'error' });
     setOpenConfirm(false);
   };
 
@@ -39,14 +39,14 @@ export default function PatientDetails({ patient }: PatientDetailsProps) {
       <Grow in={true} timeout={500}>
         <Paper elevation={3} sx={{ m: 2, p: 2 }}>
           <PatientDetailItem label='ID' data={patient.id} />
-          <PatientDetailItem label='Nombre' data={patient.name} />
-          <PatientDetailItem label='Propietario' data={patient.caretaker} />
+          <PatientDetailItem label='Name' data={patient.name} />
+          <PatientDetailItem label='Owner' data={patient.caretaker} />
           <PatientDetailItem label='Email' data={patient.email} />
           <PatientDetailItem
-            label='Fecha Alta'
+            label='Admission Date'
             data={patient.date.toString()}
           />
-          <PatientDetailItem label='Síntomas' data={patient.symptoms} />
+          <PatientDetailItem label='Symptoms' data={patient.symptoms} />
 
           <Stack
             direction={{ xs: 'column', lg: 'row' }}
@@ -59,18 +59,18 @@ export default function PatientDetails({ patient }: PatientDetailsProps) {
               color='primary'
               onClick={() => getPatientById(patient.id)}
             >
-              Editar
+              Edit
             </Button>
             <Button variant='contained' color='error' onClick={handleDelete}>
-              Eliminar
+              Delete
             </Button>
           </Stack>
         </Paper>
       </Grow>
       <ConfirmDialog
         open={openConfirm}
-        title='Confirmar eliminación'
-        content='¿Estás seguro de eliminar este paciente?'
+        title='Confirm Deletion'
+        content='Are you sure you want to delete this patient?'
         onConfirm={handleConfirmDelete}
         onClose={handleCloseConfirm}
       />
