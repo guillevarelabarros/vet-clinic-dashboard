@@ -7,6 +7,10 @@ This project simulates a real-world clinic dashboard where users can **add,
 update, delete, and visualize patients' information**, making it a practical and
 relevant solution for small veterinary clinics or educational purposes.
 
+## 🚀 Live Demo
+
+👉 [Live Demo on Netlify](https://vet-clinic-dashboard.netlify.app/)
+
 ### 📸 Screenshots
 
 ![Screen 1](./public/screen1.png) ![Screen 2](./public/screen2.png)
@@ -54,9 +58,10 @@ yarn dev
 🧪 Run Production Build
 
 yarn build
+```
 
+## 🧠 Why This Project Matters
 
-🧠 Why This Project Matters
 This project shows my ability to:
 
 Build real-world UI with Material UI.
@@ -71,11 +76,9 @@ Create reusable components with TypeScript.
 
 Structure a frontend project in a clean, modular way.
 
-👨‍💻 Author
+## 🧑‍💻 Author
 
-Guillermo Ignacio Varela Barros
-Front-End Developer — Argentina 🇦🇷
-GitHub: @guillevarelabarros
+**Guille Varela Barros** – [LinkedIn](www.linkedin.com/in/guillevarelabarros) |
+[Github](https://github.com/guillevarelabarros)
 
 Made with ❤️ and a lot of React
-```
